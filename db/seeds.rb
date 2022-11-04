@@ -7,5 +7,5 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 9.times do
-  Adventurer.create(name: Faker::Games::ElderScrolls.name, race: Faker::Games::DnD.race, alignment: Faker::Games::DnD.alignment, city: Faker::Games::DnD.city, primary_weapon: Faker::Games::DnD.melee_weapon, secondary_weapon: Faker::Games::DnD.ranged_weapon)
+  Adventurer.create(name: Faker::Games::ElderScrolls.name, klass: Faker::Games::DnD.klass, alignment: Faker::Games::DnD.alignment, city: Faker::Games::DnD.city, primary_weapon: Faker::Games::DnD.melee_weapon, secondary_weapon: Faker::Games::DnD.ranged_weapon)
 end
