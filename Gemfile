@@ -5,8 +5,8 @@ ruby "~> 3.1.2"
 
 gem "rails"
 gem "propshaft"
-gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
+gem "pg"
+gem "puma"
 gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
@@ -15,6 +15,8 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "standard"
+  gem "good_migrations"
 end
 
 group :development do
