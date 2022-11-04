@@ -1,32 +1,30 @@
-<%= turbo_frame_tag dom_id(adventurer) do %>
-  <%= link_to adventurer do %>
-    <div class="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16 border-2 border-grey-500 hover:border-yellow-800">
-      <div class="px-6">
-        <div class="flex flex-wrap justify-center">
-          <div class="w-full flex justify-center align-middle">
-            <%= image_tag "https://avatars.dicebear.com/api/avataaars/#{adventurer.name}.svg", alt: "Image of #{adventurer.name}", class: "shadow-xl bg-white rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] hover:border-2 hover:border-yellow-800" %>
-          </div>
-          <div class="w-full text-center mt-20">
-            <div class="flex justify-center lg:pt-4 pt-8 pb-0">
-              <div class="p-3 text-center">
-                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700"><%= rand(4000) %></span>
-                <span class="text-sm text-slate-400">Days Adventuring</span>
-              </div>
-              <div class="p-3 text-center">
-                <span class="text-xl font-bold block uppercase tracking-wide text-slate-700"><%= rand(40) %></span>
-                <span class="text-sm text-slate-400">Campaigns Completed</span>
-              </div>
+<%= link_to adventurer do %>
+  <div class="relative max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16 border-2 border-grey-500 hover:border-yellow-800">
+    <div class="px-6">
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full flex justify-center align-middle">
+          <%= image_tag "https://avatars.dicebear.com/api/avataaars/#{adventurer.name}.svg", alt: "Image of #{adventurer.name}", class: "shadow-xl bg-white rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] hover:border-2 hover:border-yellow-800" %>
+        </div>
+        <div class="w-full text-center mt-20">
+          <div class="flex justify-center lg:pt-4 pt-8 pb-0">
+            <div class="p-3 text-center">
+              <span class="text-xl font-bold block uppercase tracking-wide text-slate-700"><%= rand(4000) %></span>
+              <span class="text-sm text-slate-400">Days Adventuring</span>
+            </div>
+            <div class="p-3 text-center">
+              <span class="text-xl font-bold block uppercase tracking-wide text-slate-700"><%= rand(40) %></span>
+              <span class="text-sm text-slate-400">Campaigns Completed</span>
             </div>
           </div>
         </div>
-        <div class="text-center mt-2">
-          <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1"><%= adventurer.name %>
-            of <%= adventurer.city %></h3>
-          <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
-            <%= adventurer.klass %>
-          </div>
+      </div>
+      <div class="text-center mt-2">
+        <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1"><%= adventurer.name %>
+          of <%= adventurer.city %></h3>
+        <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+          <%= adventurer.klass %>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 <% end %>

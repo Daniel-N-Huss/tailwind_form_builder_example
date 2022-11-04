@@ -4,6 +4,7 @@ class AdventurersController < ApplicationController
   end
 
   def show
+    @adventurer = Adventurer.find(params[:id])
   end
 
   def update
