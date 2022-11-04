@@ -17,6 +17,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "standard"
   gem "good_migrations"
+  gem "faker"
 end
 
 group :development do

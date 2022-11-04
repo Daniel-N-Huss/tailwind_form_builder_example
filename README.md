@@ -12,6 +12,8 @@ Follow these simple setup steps to get started with the app:
 
 `rails db:migrate`
 
+`rails db:seed`
+
 `rails s`
 
 
