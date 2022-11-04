@@ -1,0 +1,2 @@
+class Adventurer < ApplicationRecord
+end
