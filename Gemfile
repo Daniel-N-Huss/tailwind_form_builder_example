@@ -14,7 +14,7 @@ gem "cssbundling-rails"
 gem "bootsnap", require: false
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "standard"
   gem "good_migrations"
 end
