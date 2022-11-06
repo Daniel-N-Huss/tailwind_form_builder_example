@@ -11,6 +11,12 @@
   </head>
 
   <body class="bg-primary text-primary">
+  <header class="py-2 border-b dark:border-gray-800">
+    <div class="container flex items-center justify-between">
+      <%= render partial: "shared/nav" %>
+    </div>
+  </header>
+
   <section class="container mx-auto">
     <%= yield %>
   </section>
