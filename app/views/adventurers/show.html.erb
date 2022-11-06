@@ -30,35 +30,29 @@
 
 
 
-  <%= form_with model: @adventurer, class: "w-2/3 flex flex-col my-4 items-center md:items-end" do |f| %>
+  <%= form_with model: @adventurer, builder: FormBuilders::TailwindFormBuilder, class: "w-2/3 flex flex-col my-4 items-center md:items-end" do |f| %>
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "Full Name", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :name, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :name, label: {text: "Full Name"} %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "City", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :city, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :city %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "Class", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :klass, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :klass, label: {text: "Class"} %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "Alignment", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :alignment, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :alignment %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "Primary Weapon", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :primary_weapon, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :primary_weapon %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.label :adventurer, "Secondary Weapon", class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
-      <%= f.text_field :secondary_weapon, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded min-w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+      <%= f.text_field :secondary_weapon %>
     </div>
 
       <%= f.submit "Save", class: "w-1/2 md:w-1/4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" %>
