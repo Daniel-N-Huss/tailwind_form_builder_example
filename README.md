@@ -10,11 +10,7 @@ Follow these simple setup steps to get started with the app:
 
 `rails db:setup`
 
-`rails db:migrate`
-
-`rails db:seed`
-
-`rails s`
+`bin/dev`
 
 
 ## What is this?
