@@ -21,16 +21,13 @@ module FormBuilders
     def submit(value = nil, options = {})
       custom_opts, opts = partition_custom_opts(options)
 
-      classes  = " "
-
-      # classes += case options.delete(:variant) { :commit }
-      # when :commit then "hover:bg-purple-400"
-      # when :reset then " hover:bg-red-500 text-red-700 border-red-500"
-      # end
+      classes = <<~CLASSES.strip
+        shadow bg-yellow-800 focus:shadow-outline focus:outline-none text-white font-bold 
+        py-2 px-4 rounded hover:bg-yellow-700
+      CLASSES
 
       classes += " #{custom_opts[:class]}"
-
-      super(value, opts.merge({ class: classes }))
+      super(value, { class: classes }.merge(opts))
     end
 
 
@@ -57,10 +54,8 @@ module FormBuilders
       label = tailwind_label(object_method, custom_opts[:label], options)
 
       classes = <<~CLASSES.strip
-        min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500
+        min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-700
       CLASSES
-      #Add your styling here!
-
 
       classes += border_color_classes(object_method)
       classes += " #{custom_opts[:class]}"
