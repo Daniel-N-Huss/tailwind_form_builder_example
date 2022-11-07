@@ -53,8 +53,13 @@ module FormBuilders
 
       label = tailwind_label(object_method, custom_opts[:label], options)
 
+      error_label = if errors_for(object_method).present?
+        tailwind_label(object_method, {text: "#{@object.errors[object_method].collect(&:titleize).join(", ")}", class: "font-bold text-red-500"}, options)
+      end
+
+
       classes = <<~CLASSES.strip
-        min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-700
+        min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(object_method)
@@ -65,14 +70,14 @@ module FormBuilders
         title: errors_for(object_method)&.join(" ")
       }.compact.merge(opts).merge({tailwindified: true}))
 
-      label + field
+      label + error_label + field
     end
 
     def border_color_classes(object_method)
       if errors_for(object_method).present?
         " border-2 border-red-400 focus:border-rose-200"
       else
-        " border border-gray-300 focus:border-purple-500"
+        " border border-gray-300 focus:border-yellow-700"
       end
     end
 
@@ -86,6 +91,5 @@ module FormBuilders
 
       @object.errors[object_method]
     end
-
   end
 end
