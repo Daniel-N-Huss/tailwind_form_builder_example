@@ -14,7 +14,6 @@ class AdventurersController < ApplicationController
       flash[:notice] = "#{@adventurer.name} was updated successfully!"
       redirect_to adventurer_path(@adventurer)
     else
-      flash.now[:alert] = @adventurer.errors.full_messages.join(", ")
       render :show, status: :unprocessable_entity
     end
 
