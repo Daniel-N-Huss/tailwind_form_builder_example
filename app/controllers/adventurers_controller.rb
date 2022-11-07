@@ -9,8 +9,16 @@ class AdventurersController < ApplicationController
 
   def update
     @adventurer = Adventurer.find(params[:id])
-    @adventurer.update(adventurer_params)
-    redirect_to adventurer_path(@adventurer)
+
+    if @adventurer.update(adventurer_params)
+      flash[:notice] = "#{@adventurer.name} was updated successfully!"
+      redirect_to adventurer_path(@adventurer)
+    else
+      flash[:alert] = @adventurer.errors.full_messages.join(", ")
+      redirect_to adventurer_path(@adventurer)
+    end
+
+
   end
 
   def adventurer_params
