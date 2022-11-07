@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_04_233300) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_07_234633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_233300) do
     t.string "secondary_weapon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number_of_campaigns"
+    t.integer "days_adventuring"
   end
 
 end
