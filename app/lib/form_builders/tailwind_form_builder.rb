@@ -45,6 +45,12 @@ module FormBuilders
       }.merge(label_opts.except(:class)))
     end
 
+    def error_label(object_method, options)
+      if errors_for(object_method).present?
+        error_message = @object.errors[object_method].collect(&:titleize).join(", ")
+        tailwind_label(object_method, { text: error_message, class: "font-bold text-red-500" }, options)
+      end
+    end
 
     private
 
@@ -52,11 +58,7 @@ module FormBuilders
       custom_opts, opts = partition_custom_opts(options)
 
       label = tailwind_label(object_method, custom_opts[:label], options)
-
-      error_label = if errors_for(object_method).present?
-        tailwind_label(object_method, {text: "#{@object.errors[object_method].collect(&:titleize).join(", ")}", class: "font-bold text-red-500"}, options)
-      end
-
+      error_label = error_label(object_method, options)
 
       classes = <<~CLASSES.strip
         min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
