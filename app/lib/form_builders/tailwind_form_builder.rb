@@ -18,6 +18,21 @@ module FormBuilders
       RUBY_EVAL
     end
 
+    def submit(value = nil, options = {})
+      custom_opts, opts = partition_custom_opts(options)
+
+      classes  = " "
+
+      # classes += case options.delete(:variant) { :commit }
+      # when :commit then "hover:bg-purple-400"
+      # when :reset then " hover:bg-red-500 text-red-700 border-red-500"
+      # end
+
+      classes += " #{custom_opts[:class]}"
+
+      super(value, opts.merge({ class: classes }))
+    end
+
 
     def tailwind_label(method, label_options, field_options)
       text, label_opts = if label_options.present?

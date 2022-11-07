@@ -1,10 +1,10 @@
-<div class=" w-3/4 sm:w-full relative flex flex-col items-center mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16 border-2 border-grey-500 hover:border-yellow-800">
+<div class=" w-3/4 sm:w-full relative flex flex-col items-center mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16 border-2 border-yellow-800">
 
 
   <div class="px-6">
     <div class="flex flex-wrap justify-center">
       <div class="w-full flex justify-center align-middle">
-        <%= image_tag "https://avatars.dicebear.com/api/avataaars/#{@adventurer.name}.svg", alt: "Image of #{@adventurer.name}", class: "shadow-xl bg-white rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px] hover:border-2 hover:border-yellow-800" %>
+        <%= image_tag "https://avatars.dicebear.com/api/avataaars/#{@adventurer.name}.svg", alt: "Image of #{@adventurer.name}", class: "shadow-xl bg-white rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" %>
       </div>
       <div class="w-full text-center mt-20">
         <div class="flex justify-center lg:pt-4 pt-8 pb-0">
@@ -55,6 +55,6 @@
       <%= f.text_field :secondary_weapon %>
     </div>
 
-      <%= f.submit "Save", class: "w-1/2 md:w-1/4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" %>
+      <%= f.submit "Save", class: "w-1/2 md:w-1/4 shadow bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400" %>
   <% end %>
 </div>
