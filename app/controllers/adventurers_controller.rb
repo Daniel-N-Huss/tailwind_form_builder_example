@@ -16,8 +16,6 @@ class AdventurersController < ApplicationController
     else
       render :show, status: :unprocessable_entity
     end
-
-
   end
 
   def adventurer_params

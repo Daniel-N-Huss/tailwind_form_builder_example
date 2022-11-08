@@ -32,7 +32,7 @@
 
   <%= form_with model: @adventurer, builder: FormBuilders::TailwindFormBuilder, class: "w-2/3 flex flex-col my-4 items-center md:items-end" do |f| %>
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :name, label: {text: "Full Name"} %>
+      <%= f.text_field :name, label: { text: "Full Name" } %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
@@ -40,15 +40,11 @@
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :klass, label: {text: "Class"} %>
+      <%= f.text_field :klass, label: { text: "Class" } %>
     </div>
 
-    <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :alignment %>
-    </div>
-
-    <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.select :alignment, ["Good", "Neutral", "Evil"] %>
+    <div class="flex flex-col md:flex-row w-3/4 md:w-full md:justify-between md:items-center mb-6">
+      <%= f.select :alignment, ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"] %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
@@ -59,6 +55,6 @@
       <%= f.text_field :secondary_weapon %>
     </div>
 
-      <%= f.submit "Save", class: "w-1/2 md:w-1/4" %>
+    <%= f.submit "Save", class: "w-1/2 md:w-1/4" %>
   <% end %>
 </div>

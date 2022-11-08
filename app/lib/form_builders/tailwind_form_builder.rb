@@ -1,10 +1,8 @@
 module FormBuilders
   class TailwindFormBuilder < ActionView::Helpers::FormBuilder
-
     class_attribute :text_field_helpers, default: field_helpers - [:label, :check_box, :radio_button, :fields_for, :fields, :hidden_field, :file_field]
     #  leans on the FormBuilder class_attribute `field_helpers`
     #  you'll want to add a method for each of the specific helpers listed here if you want to style them
-
 
     text_field_helpers.each do |field_method|
       class_eval <<-RUBY_EVAL, __FILE__, __LINE__ + 1
@@ -27,19 +25,18 @@ module FormBuilders
       CLASSES
 
       classes += " #{custom_opts[:class]}"
-      super(value, { class: classes }.merge(opts))
+      super(value, {class: classes}.merge(opts))
     end
 
     def select(method, choices = nil, options = {}, html_options = {}, &block)
       custom_opts, opts = partition_custom_opts(options)
 
       classes = <<~CLASSES.strip
-         min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
+        min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(method)
       classes += " #{custom_opts[:class]}"
-
 
       field = super(method, choices, opts, html_options.merge({class: classes}), &block)
       label = tailwind_label(method, custom_opts[:label], options)
@@ -64,7 +61,7 @@ module FormBuilders
     def error_label(object_method, options)
       if errors_for(object_method).present?
         error_message = @object.errors[object_method].collect(&:titleize).join(", ")
-        tailwind_label(object_method, { text: error_message, class: "font-bold text-red-500" }, options)
+        tailwind_label(object_method, {text: error_message, class: "font-bold text-red-500"}, options)
       end
     end
 
