@@ -32,7 +32,7 @@ module FormBuilders
       custom_opts, opts = partition_custom_opts(options)
 
       classes = <<~CLASSES.strip
-        min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
+        relative block bg-gray-200 border-2 border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(method)
