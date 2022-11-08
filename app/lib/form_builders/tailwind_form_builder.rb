@@ -32,16 +32,23 @@ module FormBuilders
       custom_opts, opts = partition_custom_opts(options)
 
       classes = <<~CLASSES.strip
-        relative block bg-gray-200 border-2 border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white
+        block bg-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(method)
       classes += " #{custom_opts[:class]}"
 
       field = super(method, choices, opts, html_options.merge({class: classes}), &block)
-      label = tailwind_label(method, custom_opts[:label], options)
+      labels = labels(method, custom_opts[:label], options)
 
-      label + field
+      labels + field
+    end
+
+    def labels(object_method, label_options, field_options)
+      label = tailwind_label(object_method, label_options, field_options)
+      error_label = error_label(object_method, field_options)
+
+      @template.content_tag("div", label + error_label, {class: "flex flex-col items-start"})
     end
 
     def tailwind_label(method, label_options, field_options)
@@ -61,7 +68,7 @@ module FormBuilders
     def error_label(object_method, options)
       if errors_for(object_method).present?
         error_message = @object.errors[object_method].collect(&:titleize).join(", ")
-        tailwind_label(object_method, {text: error_message, class: "font-bold text-red-500"}, options)
+        tailwind_label(object_method, {text: error_message, class: " font-bold text-red-500"}, options)
       end
     end
 
@@ -70,11 +77,8 @@ module FormBuilders
     def text_like_field(field_method, object_method, options = {})
       custom_opts, opts = partition_custom_opts(options)
 
-      label = tailwind_label(object_method, custom_opts[:label], options)
-      error_label = error_label(object_method, options)
-
       classes = <<~CLASSES.strip
-        min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
+        min-w-1/2 bg-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(object_method)
@@ -85,7 +89,9 @@ module FormBuilders
         title: errors_for(object_method)&.join(" ")
       }.compact.merge(opts).merge({tailwindified: true}))
 
-      label + error_label + field
+      labels = labels(object_method, custom_opts[:label], options)
+
+      labels + field
     end
 
     def border_color_classes(object_method)
