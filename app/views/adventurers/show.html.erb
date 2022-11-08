@@ -32,23 +32,23 @@
 
   <%= form_with model: @adventurer, builder: FormBuilders::TailwindFormBuilder, class: "w-2/3 flex flex-col my-4 items-center md:items-end" do |f| %>
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :name, label: { text: "Full Name" } %>
+      <%= f.text_field :name, label: { text: "Full Name" }, class: "min-w-1/2" %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :city %>
+      <%= f.text_field :city, class: "min-w-1/2" %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :klass, label: { text: "Class" } %>
+      <%= f.text_field :klass, label: { text: "Class" }, class: "min-w-1/2" %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :primary_weapon %>
+      <%= f.text_field :primary_weapon, class: "min-w-1/2" %>
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.text_field :secondary_weapon %>
+      <%= f.text_field :secondary_weapon, class: "min-w-1/2" %>
     </div>
 
     <div class="w-3/4 sm:w-1/2 md:w-full md:flex md:w-full md:justify-between md:items-center mb-6">
