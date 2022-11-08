@@ -48,6 +48,10 @@
     </div>
 
     <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
+      <%= f.select :alignment, ["Good", "Neutral", "Evil"] %>
+    </div>
+
+    <div class="md:flex md:w-full md:justify-between md:items-center mb-6">
       <%= f.text_field :primary_weapon %>
     </div>
 

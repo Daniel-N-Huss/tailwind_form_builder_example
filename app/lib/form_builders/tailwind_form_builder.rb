@@ -30,6 +30,22 @@ module FormBuilders
       super(value, { class: classes }.merge(opts))
     end
 
+    def select(method, choices = nil, options = {}, html_options = {}, &block)
+      custom_opts, opts = partition_custom_opts(options)
+
+      classes = <<~CLASSES.strip
+         min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
+      CLASSES
+
+      classes += border_color_classes(method)
+      classes += " #{custom_opts[:class]}"
+
+
+      field = super(method, choices, opts, html_options.merge({class: classes}), &block)
+      label = tailwind_label(method, custom_opts[:label], options)
+
+      label + field
+    end
 
     def tailwind_label(method, label_options, field_options)
       text, label_opts = if label_options.present?
@@ -61,7 +77,7 @@ module FormBuilders
       error_label = error_label(object_method, options)
 
       classes = <<~CLASSES.strip
-        min-w-2/3 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
+        min-w-1/2 bg-gray-200 border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
       CLASSES
 
       classes += border_color_classes(object_method)
