@@ -52,7 +52,7 @@
     </div>
 
     <div class="w-3/4 sm:w-1/2 md:w-full md:flex md:w-full md:justify-between md:items-center mb-6">
-      <%= f.select :alignment, ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"], class: "w-full md:w-1/2" %>
+      <%= f.select :alignment, Adventurer::ALIGNMENTS, class: "w-full md:w-1/2" %>
     </div>
 
     <%= f.submit "Save", class: "w-1/2 md:w-1/4" %>
