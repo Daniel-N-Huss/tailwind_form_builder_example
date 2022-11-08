@@ -61,7 +61,7 @@ module FormBuilders
       @template.content_tag("div", label + error_label, {class: "flex flex-col items-start"})
     end
 
-    def tailwind_label(method, label_options, field_options)
+    def tailwind_label(object_method, label_options, field_options)
       text, label_opts = if label_options.present?
         [label_options[:text], label_options.except(:text)]
       else
@@ -69,8 +69,8 @@ module FormBuilders
       end
 
       label_classes = label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-      label_classes += " text-slate-600 dark:text-slate-400" if field_options[:disabled]
-      label(method, text, {
+      label_classes += " text-yellow-800 dark:text-yellow-400" if field_options[:disabled]
+      label(object_method, text, {
         class: label_classes
       }.merge(label_opts.except(:class)))
     end
