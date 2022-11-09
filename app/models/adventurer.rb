@@ -3,7 +3,8 @@ class Adventurer < ApplicationRecord
   validate :good_alignment
 
   EVIL_ALIGNMENTS = ["Lawful Evil", "Neutral Evil", "Chaotic Evil"].freeze
-  ALIGNMENTS = (["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "Neutral", "Chaotic Neutral"] + EVIL_ALIGNMENTS).freeze
+  GOOD_ALIGNMENTS = ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "Neutral", "Chaotic Neutral"].freeze
+  ALIGNMENTS = (GOOD_ALIGNMENTS + EVIL_ALIGNMENTS).freeze
 
   def good_alignment
     if EVIL_ALIGNMENTS.include?(alignment)
