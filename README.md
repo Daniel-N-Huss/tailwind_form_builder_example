@@ -21,4 +21,4 @@ No, just kidding.
 
 It's really a demo of how we can leverage Tailwind alongside built in Rails Form Builders.
 
-**Link to the blog content here.**
+[Check out the blog here!](https://blog.testdouble.com/posts/2022-12-05-blending-tailwind-with-rails-forms/)
